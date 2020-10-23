@@ -4,7 +4,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {title: 'Safari Packages and Accommodation South Africa!'});
+  res.render('index', {title: 'Safari Packages and Accommodation Bookings South Africa!'});
 });
 
 
