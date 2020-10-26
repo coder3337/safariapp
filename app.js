@@ -11,9 +11,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+//const amadeusMiddleWare = require('./middleware/middleware');
 
 const indexRouter = require('./routes/index');
+const resultsRouter = require('./routes/results');
+const aboutRouter = require('./routes/about');
 const usersRouter = require('./routes/users');
+const postRouter = require('./routes/post');
+
 
 const app = express();
 
@@ -27,10 +32,14 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//app.use(amadeusMiddleWare());
 app.use('/', indexRouter);
+app.use('/', resultsRouter);
+app.use('/about', aboutRouter);
 app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
+// always last
+app.use('/', postRouter);
+/* // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
@@ -44,6 +53,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
+}); */
 
 module.exports = app;

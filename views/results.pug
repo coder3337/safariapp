@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  div.container.justify-content-center
+    h1.display-2.text-success.text-center= title
+    div.row.justify-content-center
+      div.row-auto
+        h3.text-center Take a look at what we rounded up in your search area..  
+  div.container.bg-white.rounded
+    div.row
+      div.col-2
+        p.font-weight-bold We love finding you the best Safaris!
+        p You searched for:
+          span= query
+          span= checkInDate
+          span= checkOutDate
+        p= count 
+          span results
+      div.col-10
+        each docs in list
+          div.result.p-3.mb-2.bg-light= docs.hotel.name
+            - var values = [docs.hotel.media];
+            p= docs.hotel.description
+            p= docs.hotel.amenities
+            p= docs.hotel.address
+            p= docs.hotel.cityCode
+            p= docs.hotel.latitude
+            p= docs.hotel.longitude
+            ul 
+            each val in values.length ? values : ['There are no values']
+              li= docs.hotel.media
+            p= docs.hotel.available
+            p= docs.hotel.offers
+            p= docs.hotel.rating
+            //-p= docs.hotel.media
