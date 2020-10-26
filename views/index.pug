@@ -1,24 +1,20 @@
 extends layout
 
 block content
-  div.container.justify-content-center
-    h1.display-2.text-success.text-center= title
-    div.row.justify-content-center
+  h1.display-2.text-success.text-center= title
+  div.row.justify-content-center
+    div.row-auto
+      h3.text-center Find Your Dream Kruger Safari Package!
       div.row-auto
-        h3.text-center Find Your Dream Kruger Safari Package!
-        div.row-auto
-          form.form-inline.my-4#searchBox(
-            action='/results'
-            method='GET'
-            )
-            input.form-control.mr-sm-2(type='text', placeholder='City Code ie. LON, JHB, CPT', aria-label='Search', id='cityCode' name='cityCode'  autofocus)
-            input.form-control.mr-sm-2(type='date', placeholder='Check in', aria-label='Check in', id='checkInDate' name='checkInDate'  )
-            input.form-control.mr-sm-2(type='date', placeholder='Check out', aria-label='Check out', id='checkOutDate' name='checkOutDate'  )
-            button.btn.btn-success.my-2.my-sm-0(type='submit' id='submit' ) Search  
-    div.row.justify-content-center
-      //-div.spinner-grow.text-warning(role="status")
-        //-span.sr-only.text-primary Loading...
-    div#loader
-    div#myDiv.animate-bottom(style="display:none;")
-      h2 Tada!
-      p Some results..
+        form.form-inline.my-4#searchBox(
+          action='/results'
+          method='GET'
+          )
+          input.form-control.mr-sm-2(type='text', placeholder='City Code ie. LON, JHB, CPT', aria-label='Search', id='cityCode' name='cityCode'  autofocus)
+          input.form-control.mr-sm-2(type='date', placeholder='Check in', aria-label='Check in', id='checkInDate' name='checkInDate' )
+          input.form-control.mr-sm-2(type='date', placeholder='Check out', aria-label='Check out', id='checkOutDate' name='checkOutDate'  )
+          button.btn.btn-success.my-2.my-sm-0(type='submit' id='submit' onclick='showLoading()' ) Search  
+  div.row.justify-content-center
+    //-div.spinner-grow.text-warning(role="status")
+      //-span.sr-only.text-primary Loading...
+  

@@ -22,8 +22,8 @@ const router = express.Router();
 
 router.get('/results', (req, res, next) => {
 // TO DO implement module export from here to amadeus controller to get results and send to res.render
-//    const askAmadeus = require('../controllers/amadeusControl.js');
-  // askAmadeus.findNew(docs);
+/*     const askAmadeus = require('../controllers/amadeusControl.js');
+   askAmadeus.findNew(docs); */
 
   cityCode = req.query.cityCode;
   checkInDate = req.query.checkInDate;
@@ -36,10 +36,16 @@ router.get('/results', (req, res, next) => {
   });
   // https://developers.amadeus.com/self-service/category/hotel/api-doc/hotel-search/api-reference
 
-  amadeus.shopping.hotelOffers.get({
-    cityCode: cityCode,
-    checkInDate: checkInDate,
-    checkOutDate: checkOutDate,
+  amadeus.shopping.activities.bySquare.get({
+    // western cape area
+ /*    north: -32.155740,
+    west: 18.672539,
+    south: -33.584539,
+    east: 19.471774, */
+      north: 41.397158,
+  west: 2.160873,
+  south: 41.394582,
+  east: 2.177181
 
   }).then(function(response) {
     docs = response.data;
@@ -51,6 +57,7 @@ router.get('/results', (req, res, next) => {
     console.log('media', docs);
     docs;
 
+    // res.render needs to be inside this .then - OMFG
     res.render('results', {
       title: 'We Found Some Great Deals!',
       // list: ['Hotel 1', 'Hotel 1', 'Hotel 1', 'Hotel 1', 'Hotel 1', 'Hotel 1'],
@@ -59,17 +66,14 @@ router.get('/results', (req, res, next) => {
       query: cityCode,
       checkInDate: checkInDate,
       checkOutDate: checkOutDate,
+      // latitude: lat, // 41.397158,
+      // longitude: lon, // 2.160873,
     });
-
 
     // console.log(response);
   }).catch(function(response) {
     console.error(response);
   });
-
-  console.log('results', cityCode);
-  console.log('results', checkInDate);
-  console.log('results', checkOutDate);
 },
 );
 

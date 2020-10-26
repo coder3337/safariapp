@@ -11,14 +11,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-//const amadeusMiddleWare = require('./middleware/middleware');
+// const amadeusMiddleWare = require('./middleware/middleware');
 
 const indexRouter = require('./routes/index');
 const resultsRouter = require('./routes/results');
 const aboutRouter = require('./routes/about');
 const usersRouter = require('./routes/users');
 const postRouter = require('./routes/post');
-
 
 const app = express();
 
@@ -32,7 +31,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use(amadeusMiddleWare());
+// app.use(amadeusMiddleWare());
 app.use('/', indexRouter);
 app.use('/', resultsRouter);
 app.use('/about', aboutRouter);

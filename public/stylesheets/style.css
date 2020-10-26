@@ -3,9 +3,13 @@ html {
 }
 
 body {
-  padding: 50px;
   background-size: cover;
   background-position: 0% 0%;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.2s ease-in 0.4s;
 }
 
 a {
@@ -146,7 +150,45 @@ Animating one layer of the background which is a tilted linear gradient with whi
   }
 }
 
-#myDiv {
+/* wrapper containing entire page before load event */
+
+#myWrap> {
   display: none;
   text-align: center;
+}
+
+/* checked stars */
+
+.checked {
+  color: orange;
+}
+
+.starsOuter {
+  /*	margin: 0 auto;
+  width:10%;*/
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.starsOuter, .starsInner {
+  text-align: left;
+}
+
+.starsOuter::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.starsInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.starsInner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
 }

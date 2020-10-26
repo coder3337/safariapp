@@ -95,13 +95,27 @@ function randomSpotLightImagOnRefresh() {
 }
 randomSpotLightImagOnRefresh(); */
 
+/* let myVar;
 
-let myVar;
-function getResults() {
+function myFunction() {
   myVar = setTimeout(showPage, 3000);
-}
+} */
+
 function showPage() {
   document.getElementById('loader').style.display = 'none';
-  document.getElementById('myDiv').style.display = 'block';
+  document.getElementById('myWrap').style.display = 'block';
 }
-getResults();
+function showLoading() {
+  document.getElementById('loader').style.display = 'block';
+  document.getElementById('myWrap').style.display = 'none';
+}
+
+// stars
+starsOuter = document.createElement('div');
+starsOuter.className = 'starsOuter';
+document.getElementsByClassName('reviewContainer')[i].appendChild(starsOuter);
+
+starsInner = document.createElement('div');
+starsInner.className = 'starsInner';
+document.getElementsByClassName('starsOuter')[i].appendChild(starsInner);
+
