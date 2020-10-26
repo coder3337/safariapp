@@ -4,6 +4,7 @@ git clone https://github.com/dork1/safariapp.git
 cd projectName
 
 ### Git Flow
+https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
 Never commit to the master directly.
 Always do your work on a different branch from master.
 1. git pull origin master

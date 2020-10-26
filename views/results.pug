@@ -19,16 +19,13 @@ block content
       div.col-10
         each docs in list
           div.result.p-3.mb-2.bg-light= docs.hotel.name
-            - var values = [docs.hotel.media];
             p= docs.hotel.description
             p= docs.hotel.amenities
             p= docs.hotel.address
             p= docs.hotel.cityCode
             p= docs.hotel.latitude
             p= docs.hotel.longitude
-            ul 
-            each val in values.length ? values : ['There are no values']
-              li= docs.hotel.media
+            p= docs.hotel.media
             p= docs.hotel.available
             p= docs.hotel.offers
             p= docs.hotel.rating

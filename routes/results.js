@@ -50,6 +50,18 @@ router.get('/results', (req, res, next) => {
     console.log('docs', docs);
     console.log('media', docs);
     docs;
+
+    res.render('results', {
+      title: 'We Found Some Great Deals!',
+      // list: ['Hotel 1', 'Hotel 1', 'Hotel 1', 'Hotel 1', 'Hotel 1', 'Hotel 1'],
+      list: docs, // this works after some delay and undefined - duh josh
+      count: count,
+      query: cityCode,
+      checkInDate: checkInDate,
+      checkOutDate: checkOutDate,
+    });
+
+
     // console.log(response);
   }).catch(function(response) {
     console.error(response);
@@ -58,16 +70,6 @@ router.get('/results', (req, res, next) => {
   console.log('results', cityCode);
   console.log('results', checkInDate);
   console.log('results', checkOutDate);
-
-  res.render('results', {
-    title: 'We Found Some Great Deals!',
-    // list: ['Hotel 1', 'Hotel 1', 'Hotel 1', 'Hotel 1', 'Hotel 1', 'Hotel 1'],
-    list: docs, // this works after some delay and undefined - duh josh
-    count: count,
-    query: cityCode,
-    checkInDate: checkInDate,
-    checkOutDate: checkOutDate,
-  });
 },
 );
 
