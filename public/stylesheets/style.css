@@ -1,8 +1,152 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-size: cover;
+  background-position: 0% 0%;
 }
 
 a {
-  color: #00B7FF;
+  color: #28a745;
+}
+
+form#searchBox input, form#searchBox button {
+  font-size: 2.5em;
+}
+
+/* Hide scrollbar on modal popup */
+
+body.modal-open {
+  padding-right: 0!important;
+}
+
+img#randomSpotLightImage {
+  margin: auto;
+}
+
+/* Image Hover Overlay */
+
+/* skeleton loading stuff */
+
+/* Razvan Caliman
+https://codepen.io/oslego/pen/XdvWmd 
+h variant of -> ttps://css-tricks.com/building-skeleton-screens-css-custom-properties/*/
+
+/* 
+Animated skeleton screen using CSS.
+
+Create shapes using gradients that simulate solids.
+
+Use `:empty` pseduo-class to show skeleton screen background only while container has no content (ex: for the "loading" state). When content is added to the container element, the pseudo-class selector won't match anymore and the skeleton screen will be removed automatically; no need to toggle a separate class on the container.
+
+See: https://developer.mozilla.org/en-US/docs/Web/CSS/:empty
+
+Animating one layer of the background which is a tilted linear gradient with white in the middle to achieve shine effect.
+*/
+
+/* .demo::content {
+  background: url('https://i.stack.imgur.com/Bhpd8.jpg') left bottom;
+} */
+
+.demo:empty {
+  margin: auto;
+  width: 500px;
+  height: 300px;
+  /* change height to see repeat-y behavior */
+  background-image: radial-gradient( circle 50px at 50px 50px, lightgray 99%, transparent 0), linear-gradient( 100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80%), linear-gradient( lightgray 20px, transparent 0), linear-gradient( lightgray 20px, transparent 0), linear-gradient( lightgray 20px, transparent 0), linear-gradient( lightgray 20px, transparent 0);
+  background-repeat: repeat-y;
+  background-size: 100px 200px, /* circle */
+  50px 200px, /* highlight */
+  150px 200px, 350px 200px, 300px 200px, 250px 200px;
+  background-position: 0 0, /* circle */
+  0 0, /* highlight */
+  120px 0, 120px 40px, 120px 80px, 120px 120px;
+  animation: shine 1s infinite;
+  /*   background-color: white;
+ */
+  /*   padding: 3em;
+ */
+}
+
+@keyframes shine {
+  to {
+    background-position: 0 0, 100% 0, /* move highlight to right */
+    120px 0, 120px 40px, 120px 80px, 120px 120px;
+  }
+}
+
+/* Center the loader */
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add animation to "page content" */
+
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0
+  }
+  to {
+    bottom: 0px;
+    opacity: 1
+  }
+}
+
+@keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0
+  }
+  to {
+    bottom: 0;
+    opacity: 1
+  }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
 }

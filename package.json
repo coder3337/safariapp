@@ -8,15 +8,17 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon -e * ./bin/www",
-    "ui": "browser-sync start --proxy localhost:3000 --files=**/*  --ignore=node_modules --reload-delay 10 --no-ui --no-inject-changes"
+    "ui": "browser-sync start --proxy localhost:3000 --files=**/*  --ignore=node_modules --reload-delay 10000 --no-ui --no-inject-changes"
   },
   "dependencies": {
+    "amadeus": "^5.4.0",
     "cookie-parser": "~1.4.5",
     "debug": "~4.2.0",
     "dotenv": "^8.2.0",
     "express": "~4.17.1",
     "http-errors": "~1.8.0",
     "morgan": "~1.10.0",
+    "node-fetch": "^2.6.1",
     "pug": "3.0.0"
   },
   "devDependencies": {
