@@ -1,11 +1,10 @@
 extends layout
 
 block content
-  div.container.justify-content-center
-    h1.display-2.text-success.text-center= title
-    div.row.justify-content-center
-      div.row-auto
-        h3.text-center Take a look at what we rounded up in your search area..  
+  h1.display-2.text-success.text-center= title
+  div.row.justify-content-center
+    div.row-auto
+      h3.text-center Take a look at what we rounded up in your search area..  
   div.container.bg-white.rounded
     div.row
       div.col-2
@@ -18,18 +17,25 @@ block content
           span results
       div.col-10
         each docs in list
-          div.result.p-3.mb-2.bg-light= docs.hotel.name
-            - var values = [docs.hotel.media];
-            p= docs.hotel.description
-            p= docs.hotel.amenities
-            p= docs.hotel.address
-            p= docs.hotel.cityCode
-            p= docs.hotel.latitude
-            p= docs.hotel.longitude
-            ul 
-            each val in values.length ? values : ['There are no values']
-              li= docs.hotel.media
-            p= docs.hotel.available
-            p= docs.hotel.offers
-            p= docs.hotel.rating
+          div.result.p-3.mb-2.bg-light.text-align-left.small
+            h3.font-weight-bold= docs.name
+            - var url = docs.pictures;
+            img.thumbnail.float-right.img-thumbnail.ml-5(src='' + url alt='cf' width='200px' height='auto')
+            p= docs.shortDescription
+            //-p= docs.hotel.amenities
+            //-p= docs.hotel.address
+            //-p= docs.hotel.cityCode
+            b
+              span.mr-3= docs.geoCode.latitude
+            b
+              span= docs.geoCode.longitude
+            each val, index in docs.price
+              //- this prints the index too -> div= index + ':' + val + "'<br>'"
+              div= val
+            .starsOuter
+              .starInner
+            p= docs.rating
+              span.ratingStar.fa.fa-star.checked
+            - var bookLink = docs.bookingLink;
+            a.btn.btn-warning(href='' + bookLink target='blank') Book
             //-p= docs.hotel.media
