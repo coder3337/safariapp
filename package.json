@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon -e * ./bin/www",
-    "ui": "browser-sync start --proxy localhost:3000 --files=**/*  --ignore=node_modules --reload-delay 10000 --no-ui --no-inject-changes"
+    "ui": "browser-sync start --proxy localhost:3000 --files=**/*  --ignore=node_modules --no-ui --no-inject-changes"
   },
   "dependencies": {
     "amadeus": "^5.4.0",

@@ -12,6 +12,7 @@ Always do your work on a different branch from master.
 3. git add .
 4. git commit -m "description of your commit"
 5. git push origin MyNewBranch (push including your branch) or git push -u origin new-feature (sets upstream to current new-feature branch)
+6. Make changes locally and push to git branch for review, or if no review and tests passed create pull request and merge to master.
 
 #### to run nodemon and browser-sync at the same time
 1. Start new terminal and run: npm run dev

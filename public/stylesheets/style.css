@@ -45,7 +45,7 @@ Create shapes using gradients that simulate solids.
 
 Use `:empty` pseduo-class to show skeleton screen background only while container has no content (ex: for the "loading" state). When content is added to the container element, the pseudo-class selector won't match anymore and the skeleton screen will be removed automatically; no need to toggle a separate class on the container.
 
-See: https://developer.mozilla.org/en-US/docs/Web/CSS/:empty
+See: https://developer.mozilla.org/en-US/results/Web/CSS/:empty
 
 Animating one layer of the background which is a tilted linear gradient with white in the middle to achieve shine effect.
 */

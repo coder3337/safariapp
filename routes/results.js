@@ -1,20 +1,21 @@
 const express = require('express');
 const router = express.Router();
+const amadeus = require('../controllers/amadeusControl.js');
+
 
 router.get('/results', (req, res, next) => {
   // incoming query params from search
-  cityCode = req.query.cityCode;
-  checkInDate = req.query.checkInDate;
-  checkOutDate = req.query.checkOutDate;
-  // ask the controller for the list, must be before the render
-  const askAmadeus = require('../controllers/amadeusControl.js');
-  askAmadeus.shoppingActivitiesBySquare();
-// render the results
+  const cityCode = req.query.cityCode;
+  const checkInDate = req.query.checkInDate;
+  const checkOutDate = req.query.checkOutDate;
+
+  amadeus.askAmadeus();
+
   res.render('results', {
     title: 'We Found Some Great Deals!',
-    list: docs,
+    list: results,
     count: count,
-    query: cityCode,
+    cityCode: cityCode,
     checkInDate: checkInDate,
     checkOutDate: checkOutDate,
     // latitude: lat, // 41.397158,

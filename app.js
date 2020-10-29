@@ -11,7 +11,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-// const amadeusMiddleWare = require('./middleware/middleware');
+// const amadeusMiddleWare = require('./middleware/middleware'); // coming later
 
 const indexRouter = require('./routes/index');
 const resultsRouter = require('./routes/results');
@@ -31,19 +31,19 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(amadeusMiddleWare());
+// app.use(amadeusMiddleWare()); // coming later
 app.use('/', indexRouter);
 app.use('/', resultsRouter);
 app.use('/about', aboutRouter);
 app.use('/users', usersRouter);
 // always last
 app.use('/', postRouter);
-/* // catch 404 and forward to error handler
+// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+/* // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
