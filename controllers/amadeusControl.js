@@ -4,12 +4,25 @@ const amadeus = new Amadeus({
   'clientSecret': process.env.AMADEUS_CLIENT_SECRET,
 });
 
-async function askAmadeus() {
-  await amadeus.shopping.activities.bySquare.get({
-    north: 41.397158,
-    west: 2.160873,
-    south: 41.394582,
-    east: 2.177181, // barcelona
+/* // eg of logic for query switch
+var x = "?";
+switch (x) {
+  case 'Banana':
+    alert('Hello');
+    break;
+  case 'Apple':
+    alert('Welcome');
+    break;
+  case 'pear':
+    alert('Welcome');
+    default;
+} */
+
+
+// if city code entered
+async function askAmadeus(cityCode) {
+  await amadeus.shopping.hotelOffers.get({
+    cityCode: cityCode,
   }).then(function(response) {
     console.log(response.data);
     results = response.data;
@@ -21,8 +34,39 @@ async function askAmadeus() {
   });
 }
 askAmadeus();
-
 module.exports.askAmadeus = askAmadeus;
+
+// else run generic block search
+/* async function askAmadeus() {
+  await amadeus.shopping.activities.bySquare.get({
+    north: 41.397158,
+    west: 2.160873,
+    south: 41.394582,
+    east: 2.177181, // barcelona
+  }).then(function(response) {
+    // console.log(response.data);
+    results = response.data;
+    count = Object.keys(results).length;
+    // console.log(results);
+    // console.log(count);
+  }).catch(function(response) {
+    console.error(response);
+  });
+}
+askAmadeus();
+module.exports.askAmadeus = askAmadeus; */
+
+
+/* amadeus.shopping.hotelOffers.get({
+  cityCode: cityCode,
+}).then(function(response) {
+  results = response.data;
+  count = Object.keys(response).length;
+  console.log('count', count);
+  // console.log(response);
+}).catch(function(response) {
+  console.error(response);
+}); */
 
 /* console.log(response.body); // => The raw body
     console.log(response.result); // => The fully parsed result

@@ -17,7 +17,6 @@ const indexRouter = require('./routes/index');
 const resultsRouter = require('./routes/results');
 const aboutRouter = require('./routes/about');
 const usersRouter = require('./routes/users');
-const postRouter = require('./routes/post');
 
 const app = express();
 
@@ -37,7 +36,7 @@ app.use('/', resultsRouter);
 app.use('/about', aboutRouter);
 app.use('/users', usersRouter);
 // always last
-app.use('/', postRouter);
+//app.use('/', postRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -17,16 +17,17 @@ block content
       div.col-10
         each results in list
           div.result.p-3.mb-2.bg-light.text-align-left.small
-            h3.font-weight-bold= results.name
-            p= results.type
-            p= results.shortDescription
-            - var url = results.pictures;
-            img.thumbnail.float-right.img-thumbnail.ml-5(src='' + url alt='cf' width='200px' height='auto')
+            h3.font-weight-bold= results.hotel.name
+            p= results.available
+            p= results.hotel.type
+            p= results.hotel.rating
+            p= results.hotel.description
+            p= results.hotel.offers
+            each val, index in results.hotel.media
+              div= index
+              - var url = results.hotel.media.uri;
+              img.thumbnail.float-right.img-thumbnail.ml-5(src='' + url alt='cf' width='200px' height='auto')
             //-b
-              span.mr-3= docs.geoCode.latitude
+              span.mr-3= results.hotel.latitude
             //-b
-              span= docs.geoCode.longitude
-            each val, index in results.price
-              div= val
-            .starsOuter
-              .starInner
+              span= results.hotel.longitude

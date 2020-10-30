@@ -9,7 +9,7 @@ router.get('/results', (req, res, next) => {
   const checkInDate = req.query.checkInDate;
   const checkOutDate = req.query.checkOutDate;
 
-  amadeus.askAmadeus();
+  amadeus.askAmadeus(cityCode);
 
   res.render('results', {
     title: 'We Found Some Great Deals!',
