@@ -5,7 +5,7 @@ require('dotenv').config();
 // const hostname = process.env['HOST' + env]; // must be 0.0.0.0 on heroku
 // const port = process.env.PORT || '3000';
 
-const createError = require('http-errors');
+// const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');

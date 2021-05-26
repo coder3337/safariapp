@@ -5,7 +5,7 @@ function shoppingActivitiesBySquare() {
     'clientSecret': process.env.AMADEUS_CLIENT_SECRET,
   });
 
-  // TO DO currently form searches nothing and returns below geo results. Query fields are submitted to the router lines.6-8,. The below geo square are the results when selecting any option in the form, otherwise its undefined. We need to implement a switch here to select the endpoint based off the user query. This was only to test returned data results
+  // TO DO currently form searches nothing and returns below geo results. Query fields are submitted to the router lines.6-8,. The below geo square area the results when selecting any option in the form, otherwise its undefined. We need to implement a switch here to select the endpoint based off the user query. This was only to test returned data results
   amadeus.shopping.activities.bySquare.get({
   // western cape area
   /*    north: -32.155740,
